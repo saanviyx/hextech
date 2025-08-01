@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HexTech - Arcane-Inspired Web Design</title>
+    <meta name="description" content="Premium UX/UI Web Design Packages - Arcane-themed professional websites">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-hex">Hex</span><span class="brand-tech">Tech</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#packages" class="nav-link">Packages</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-hex">Hex</span><span class="title-tech">Tech</span>
+            </h1>
+            <p class="hero-subtitle">
+                Premium UX/UI Web Design Packages for Modern Businesses
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('contact')">Get Started</button>
+                <button class="btn btn-outline" onclick="scrollToSection('packages')">View Packages</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Perfect Package</h2>
+                <p class="section-subtitle">All builds are mobile-first, WCAG-friendly, and ready for future scale.</p>
+                <p class="section-note">* Prices are one-time. Hosting not included.</p>
+            </div>
+
+            <!-- Main Packages -->
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-name">BASIC</h3>
+                        <p class="package-subtitle">Starter Presence</p>
+                        <div class="package-pricing">
+                            <span class="original-price">AED 3,999</span>
+                            <span class="current-price">AED 1,999</span>
+                        </div>
+                        <p class="package-description">Perfect for micro businesses & landing pages</p>
+                    </div>
+                    <div class="package-features-inline">
+                        <span class="feature-tag">Responsive Design</span>
+                        <span class="feature-tag">CMS Access</span>
+                        <span class="feature-tag">Basic SEO</span>
+                        <span class="feature-tag">3hr Training</span>
+                    </div>
+                    <div class="package-action">
+                        <button class="btn btn-outline package-btn" onclick="selectPackage('basic')">Get Started</button>
+                    </div>
+                </div>
+
+                <div class="package-card popular">
+                    <div class="popular-badge">
+                        <span>Most Popular</span>
+                    </div>
+                    <div class="package-header">
+                        <h3 class="package-name">GROWTH</h3>
+                        <p class="package-subtitle">Engage & Convert</p>
+                        <div class="package-pricing">
+                            <span class="original-price">AED 7,999</span>
+                            <span class="current-price">AED 4,999</span>
+                        </div>
+                        <p class="package-description">SMBs ready to lift conversions with instant chat</p>
+                    </div>
+                    <div class="package-features-inline">
+                        <span class="feature-tag">All Basic Features</span>
+                        <span class="feature-tag highlight">Live Chatbot</span>
+                        <span class="feature-tag highlight">AI Integration</span>
+                        <span class="feature-tag">Custom UX/UI</span>
+                    </div>
+                    <div class="package-action">
+                        <button class="btn btn-primary package-btn" onclick="selectPackage('growth')">Get Started</button>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3 class="package-name">ELITE</h3>
+                        <p class="package-subtitle">Enterprise Experience</p>
+                        <div class="package-pricing">
+                            <span class="original-price">AED 14,999</span>
+                            <span class="current-price">AED 9,999</span>
+                        </div>
+                        <p class="package-description">Corporates & scale-ups needing AI-powered support</p>
+                    </div>
+                    <div class="package-features-inline">
+                        <span class="feature-tag">Everything in Growth</span>
+                        <span class="feature-tag highlight">Bespoke Design</span>
+                        <span class="feature-tag highlight">Multi-lingual AI</span>
+                        <span class="feature-tag">Priority Support</span>
+                    </div>
+                    <div class="package-action">
+                        <button class="btn btn-outline package-btn" onclick="selectPackage('elite')">Get Started</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add-Ons Section -->
+            <div class="addons-section">
+                <h3 class="addons-title">Enhance Your Package</h3>
+                <p class="addons-subtitle">Add-On Extras - Enhance your package with these optional premium services</p>
+                
+                <div class="addons-grid">
+                    <div class="addon-card">
+                        <div class="addon-header">
+                            <h4 class="addon-name">Annual Maintenance</h4>
+                            <span class="addon-price">AED 299/yr</span>
+                        </div>
+                        <p class="addon-description">Core & plugin updates, backups, security patches</p>
+                        <ul class="addon-features">
+                            <li>Monthly security updates</li>
+                            <li>Automated backups</li>
+                            <li>Performance monitoring</li>
+                            <li>24/7 uptime tracking</li>
+                        </ul>
+                        <button class="btn btn-addon" onclick="addAddon('maintenance')">Add to Package</button>
+                    </div>
+
+                    <div class="addon-card">
+                        <div class="addon-header">
+                            <h4 class="addon-name">Design Refresh</h4>
+                            <span class="addon-price">AED 399/request</span>
+                        </div>
+                        <p class="addon-description">Homepage hero swap, new section layout, colour revamp, etc.</p>
+                        <ul class="addon-features">
+                            <li>Hero section redesign</li>
+                            <li>Color scheme updates</li>
+                            <li>Layout modifications</li>
+                            <li>Content restructuring</li>
+                        </ul>
+                        <button class="btn btn-addon" onclick="addAddon('design')">Add to Package</button>
+                    </div>
+
+                    <div class="addon-card">
+                        <div class="addon-header">
+                            <h4 class="addon-name">AI Content Studio</h4>
+                            <span class="addon-price">AED 599</span>
+                            <span class="new-badge">New</span>
+                        </div>
+                        <p class="addon-description">Professional AI-generated images, videos, and visual content for your website</p>
+                        <ul class="addon-features">
+                            <li>Custom AI-generated images</li>
+                            <li>Professional video content</li>
+                            <li>Brand-consistent visuals</li>
+                            <li>Unlimited revisions</li>
+                        </ul>
+                        <button class="btn btn-addon" onclick="addAddon('ai-content')">Add to Package</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About HexTech</h2>
+                <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="tech-features">
+                    <div class="tech-feature">
+                        <i class="fas fa-gauge icon"></i>
+                        <h4>Lightning Fast</h4>
+                        <p>Optimized for speed and performance</p>
+                    </div>
+                    <div class="tech-feature">
+                        <i class="fas fa-shield-alt icon"></i>
+                        <h4>Secure & Reliable</h4>
+                        <p>Enterprise-grade security protocols</p>
+                    </div>
+                    <div class="tech-feature">
+                        <i class="fas fa-chart-line icon"></i>
+                        <h4>Growth Oriented</h4>
+                        <p>Designed to turn visitors into customers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2 class="section-title">Let's Build Something <span class="text-accent">Extraordinary</span></h2>
+                <p class="section-subtitle">Ready to transform your digital presence? Choose how you'd like to connect with our team.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-comments icon"></i>
+                    <h3>Quick Chat</h3>
+                    <p>15-minute discovery call to discuss your project and find the perfect package.</p>
+                    <button class="btn btn-primary" onclick="bookCall()">Book Discovery Call</button>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-bolt icon"></i>
+                    <h3>Instant Connect</h3>
+                    <p>WhatsApp or call us directly for immediate assistance and quick answers.</p>
+                    <button class="btn btn-outline" onclick="callPhone()">+971 50 123 4567</button>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope icon"></i>
+                    <h3>Email Us</h3>
+                    <p>Send us your project details and we'll respond with a custom proposal tailored specifically.</p>
+                    <button class="btn btn-outline" onclick="sendEmail()">info@hextech.ae</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactForm" class="contactForm">
+        <div class="form-header">
+            <h3>Tell Us About Your Project</h3>
+            <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+        </div>
+        <div class="contact-form-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" placeholder="Your Company Ltd.">
+                    </div>
+                    <div class="form-group">
+                        <label>Package Interest</label>
+                        <select id="packageSelect">
+                            <option>Basic - Starter Presence</option>
+                            <option>Growth - Engage & Convert</option>
+                            <option>Elite - Enterprise Experience</option>
+                            <option>Custom Solution</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group form-full">
+                    <label>Project Details</label>
+                    <textarea placeholder="Tell us about your project, goals, timeline, and any specific requirements..." rows="6"></textarea>
+                </div>
+
+                <div style="display: flex; justify-content: center; margin-top: 2rem;">
+                    <button type="submit" class="btn btn-primary">Send Project Details</button>
+                </div>
+            </form>
+            <div class="map-info-wrapper">
+                <div class="map-container">
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.822201261862!2d55.1651604!3d25.1078793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b1495a55be1%3A0x5b8e89f8023b5766!2sin5%20Tech!5e0!3m2!1sen!2sae!4v1754078884461!5m2!1sen!2sae"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="info-card">
+                    <h4>Business Hours</h4>
+                    <div class="info-details">
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p class="text-accent">UAE Time Zone (GMT+4)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2024 HexTech. All rights reserved. Transforming businesses through technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
