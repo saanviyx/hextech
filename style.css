@@ -7,11 +7,12 @@
     --accent: #60a5fa;
     --accent-hover: #3b82f6;
     --background: #060c1b;
-    --surface: #2e3f5b;
+    --surface: #ffffff;
     --surface-light: #334155;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
+    --surface-extra-light: #999da0;
+    --text-primary: #131b24;
+    --text-secondary: #474e56;
+    --text-muted: #2b3038;
     --border: #6e93c5;
     --success: #10b981;
     --warning: #f59e0b;
@@ -22,6 +23,7 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    --radius-lg: 12px;
 }
 
 * {
@@ -82,25 +84,27 @@ body {
 }
 
 .brand-hex {
-    color: var(--accent);
+    color: var(--surface);
 }
 
 .brand-tech {
-    color: var(--text-primary);
+    color: var(--accent);
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
+    align-items: center;
 }
 
 .nav-link {
-    color: var(--text-secondary);
+    color: var(--surface);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
+    padding: 0.5rem 0;
 }
 
 .nav-link::after {
@@ -122,6 +126,7 @@ body {
     width: 100%;
 }
 
+/* Mobile toggle button - hidden on desktop */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -129,14 +134,87 @@ body {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1001;
 }
 
 .nav-toggle span {
     width: 25px;
     height: 3px;
-    background: var(--text-primary);
+    background: var(--surface-extra-light);
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 3px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Desktop styles - 768px and above */
+@media screen and (min-width: 768px) {
+    .nav-links {
+        display: flex !important; /* Force display on desktop */
+        position: static !important;
+        flex-direction: row !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        gap: 2rem !important;
+        border-radius: 0 !important;
+        align-items: center !important;
+    }
+
+    .nav-toggle {
+        display: none !important; /* Force hide on desktop */
+    }
+}
+
+/* Mobile styles - 767px and below */
+@media screen and (max-width: 767px) {
+    .nav-container {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 1rem;
+        right: 1rem;
+        background: var(--background);
+        box-shadow: var(--shadow-lg);
+        padding: 1rem;
+        gap: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active class is added */
+    }
+
+    .nav-toggle {
+        display: flex; /* Show toggle button on mobile */
+    }
+
+    .nav-link {
+        padding: 0.75rem 0;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
 }
 
 /* Hero Section */
@@ -201,13 +279,13 @@ body {
 }
 
 .title-hex {
-    color: var(--text-primary);
+    color: var(--surface);
     font-weight: 500;
 }
 
 .title-tech {
     color: var(--accent);
-    font-weight: 300;
+    font-weight: 350;
 }
 
 /* Smooth entrance animation */
@@ -224,7 +302,7 @@ body {
 
 .hero-subtitle {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
-    color: var(--text-secondary);
+    color: var(--surface-extra-light);
     margin-bottom: 3rem;
     font-weight: 400;
     line-height: 1.4;
@@ -275,7 +353,7 @@ body {
 
 .btn-primary {
     background: var(--gradient-primary);
-    color: var(--text-primary);
+    color: var(--surface);
     box-shadow: var(--shadow-md);
     justify-items: center;
 }
@@ -375,7 +453,7 @@ section {
 }
 
 .package-card {
-    background: var(--surface);
+    background: var(--background);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 2rem;
@@ -390,11 +468,6 @@ section {
 .package-card:hover {
     border-color: var(--accent);
     box-shadow: var(--shadow-lg);
-}
-
-.package-card.popular {
-    border-color: var(--accent);
-    background: rgba(30, 58, 138, 0.05);
 }
 
 .popular-badge {
@@ -416,12 +489,12 @@ section {
 .package-name {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--surface);
     margin-bottom: 0.5rem;
 }
 
 .package-subtitle {
-    color: var(--text-secondary);
+    color: var(--surface-extra-light);
     font-size: 1rem;
     margin-bottom: 1rem;
 }
@@ -435,18 +508,18 @@ section {
 
 .original-price {
     text-decoration: line-through;
-    color: var(--text-muted);
+    color: var(--surface);
     font-size: 0.875rem;
 }
 
 .current-price {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--surface);
 }
 
 .package-description {
-    color: var(--text-muted);
+    color: var(--surface-extra-light);
     font-size: 0.875rem;
 }
 
@@ -458,18 +531,11 @@ section {
 }
 
 .feature-tag {
-    background: var(--background);
-    color: var(--text-secondary);
+    background: var(--accent);
+    color: var(--background);
     padding: 0.375rem 0.75rem;
     border-radius: 6px;
     font-size: 0.75rem;
-    border: 1px solid var(--border);
-}
-
-.feature-tag.highlight {
-    background: var(--accent);
-    color: var(--background);
-    border-color: var(--accent);
 }
 
 .package-action {
@@ -593,11 +659,11 @@ section {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 .cta-subtitle {
-    color: var(--text-secondary);
+    color: var(--surface);
     margin-bottom: 2rem;
     max-width: 500px;
     margin-left: auto;
@@ -627,7 +693,7 @@ section {
     border: 1px solid var(--border);
     border-radius: 12px;
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--surface);
     transition: all 0.3s ease;
 }
 
@@ -642,12 +708,12 @@ section {
 
 .contact-main {
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--surface);
 }
 
 .contact-sub {
     font-size: 0.875rem;
-    color: var(--text-muted);
+    color: var(--surface-extra-light);
 }
 
 /* About Section */
@@ -659,6 +725,10 @@ section {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.about-content .section-title {
+    color: var(--surface);
 }
 
 .about-text {
@@ -752,20 +822,21 @@ section {
     border-color: var(--accent);
 }
 
-.contact-card .contact-icon {
-    font-size: 3rem;
+.contact-card .icon {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: var(--surface);
 }
 
 .contact-card h3 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: var(--text-primary);
+    color: var(--surface);
 }
 
 .contact-card p {
-    color: var(--text-secondary);
+    color: var(--surface-extra-light);
     margin-bottom: 2rem;
 }
 
@@ -797,6 +868,9 @@ section {
     width: 450px;
     margin-top: 3rem;
     height: 450px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
 }
 
 .map-info-wrapper {
@@ -814,11 +888,11 @@ section {
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    color: var(--surface);
 }
 
 .form-header p {
-    color: var(--text-secondary);
+    color: var(--surface-extra-light);
 }
 
 .form-grid {
@@ -838,7 +912,7 @@ section {
 }
 
 .form-group label {
-    color: var(--text-primary);
+    color: var(--surface);
     font-weight: 400;
     margin-bottom: 0.5rem;
 }
@@ -884,12 +958,12 @@ section {
     font-size: 1.35rem;
     font-weight: 600;
     margin-bottom: 0.3rem;
-    color: var(--text-primary);
+    color: var(--surface);
 }
 
 .info-details p {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--surface-extra-light);
     margin-bottom: 0.15rem;
 }
 
@@ -956,6 +1030,7 @@ section {
 
 .nav-toggle {
     display: flex;
+    color: var(--surface-extra-light)
 }
 
 .nav-toggle.active span:nth-child(1) {

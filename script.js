@@ -2,17 +2,20 @@ const navbar = document.getElementById('navbar');
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
-// Mobile navigation toggle
+// Mobile navigation toggle - only affects mobile view
 navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('active');
     navLinks.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
+// Close mobile menu when clicking on a link (only on mobile)
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('active');
+        // Only close menu if we're in mobile view (toggle is visible)
+        if (window.getComputedStyle(navToggle).display !== 'none') {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
     });
 });
 
@@ -33,8 +36,31 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Particle system - disabled for professional look
-// Remove particle creation code
+// Handle window resize to ensure proper state
+window.addEventListener('resize', () => {
+    // If window is resized to desktop, ensure mobile menu is closed
+    if (window.innerWidth >= 768) {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
+
+// Enhanced smooth scrolling for navigation links
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 
 // Package selection
 let selectedPackage = '';
