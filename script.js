@@ -53,7 +53,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
         const targetSection = document.getElementById(targetId);
         
         if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+            const offsetTop = targetSection.offsetTop - 50; // Account for fixed navbar
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
